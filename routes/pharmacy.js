@@ -174,10 +174,10 @@ pharmacy.post("/removeDrug/:pharmacy/:drug", async (req, res) => {
   }
 });
 
-pharmacy.get("/search/:location/:drug", async (req, res) => {
+pharmacy.get("/search/:district/:drug", async (req, res) => {
   try {
     const pharmacyList = await PharmacyModel.find({
-      location: req.params.location,
+      district: req.params.district,
     }); // search with drug name
 
     var selectedPharmacyList = [];
