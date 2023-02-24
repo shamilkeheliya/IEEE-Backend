@@ -2,7 +2,7 @@ const express = require("express");
 const pharmacy = express.Router();
 const PharmacyModel = require("../model/pharmacy");
 const password = require("../services/password");
-// const { generateToken } = require("../utills/generatetoken");
+const { generateToken } = require("../utills/generatetoken");
 
 pharmacy.get("/", async (req, res) => {
   res.status(200).json({ msg: "pharmacy" });
@@ -39,24 +39,16 @@ pharmacy.post("/create", async (req, res) => {
   }
 });
 
-pharmacy.post("/verify/:pharmacy", async (req, res) => {
+pharmacy.post("/update/:pharmacy", async (req, res) => {
   try {
     await PharmacyModel.updateOne(
       { _id: req.params.pharmacy },
       {
-        name: req.body.name,
-        email: req.body.email,
-        password: hash,
-        pharmacy_license_number: req.body.pharmacy_license_number,
-        drug: [],
         address: req.body.address,
-        district: req.body.district,
-        isVerify: false,
         contact: req.body.contact,
-
-        ownerName: '',
-        ownerNIC: '',
-        ownerAddress: '',
+        ownerName: req.body.ownerName,
+        ownerNIC: req.body.ownerNIC,
+        ownerAddress: req.body.ownerAddress,
       }
     );
 
