@@ -51,5 +51,17 @@ drug.get("/:name", async (req,res)=>{
     
 });
 
+drug.get("/delete/:name", async (req,res)=>{
+
+    try{
+        await DrugModel.findOneAndDelete({name : req.params.name});
+
+        res.status(200).json({message:"Deleted successful!"});
+    }
+    catch(error){
+        res.status(400).json({ message: error.message });
+    }
+    
+});
 
 module.exports = drug;

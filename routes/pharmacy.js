@@ -198,4 +198,16 @@ pharmacy.get("/search/:district/:drug", async (req, res) => {
   }
 });
 
+pharmacy.get("/district/:district", async (req, res) => {
+  try {
+    const pharmacyList = await PharmacyModel.find({
+      district: req.params.district,
+    });
+
+    res.status(200).json(pharmacyList);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 module.exports = pharmacy;
