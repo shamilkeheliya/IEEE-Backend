@@ -1,0 +1,33 @@
+{
+    "name": "ieee-hackothon-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "nodemon server.js",
+      "start": "nodemon server.js",
+      "debug": "node --inspect server.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Hirunagrad/IEEE-hackothon-backend.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Hirunagrad/IEEE-hackothon-backend/issues"
+    },
+    "homepage": "https://github.com/Hirunagrad/IEEE-hackothon-backend#readme",
+    "dependencies": {
+      "bcrypt": "^5.1.0",
+      "body-parser": "^1.20.2",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.3",
+      "express": "^4.18.2",
+      "jsonwebtoken": "^9.0.0",
+      "mongoose": "^6.9.2",
+      "nodemon": "^2.0.20"
+    }
+  }
+  
