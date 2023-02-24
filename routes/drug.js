@@ -25,7 +25,7 @@ drug.post('/create', async (req, res)=>{
     }
 });
 
-drug.get("/all", protect,async (req,res)=>{
+drug.get("/all",async (req,res)=>{
 
     try{
         const data = await DrugModel.find({});
