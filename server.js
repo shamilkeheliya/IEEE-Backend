@@ -20,10 +20,6 @@ mongoose.connect(dbURL)
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
     app.use(cors());
-
-    app.get('/',(req, res)=>{
-        res.status(200).json({message:"hello shamil"});
-    });
  
-    
+    app.use('/api/v1', routes);
 });
