@@ -2,7 +2,7 @@ const express = require("express");
 const pharmacy = express.Router();
 const PharmacyModel = require("../model/pharmacy");
 const password = require("../services/password");
-const { generateToken } = require("../utills/generatetoken");
+// const { generateToken } = require("../utills/generatetoken");
 
 pharmacy.get("/", async (req, res) => {
   res.status(200).json({ msg: "pharmacy" });
@@ -28,10 +28,6 @@ pharmacy.post("/create", async (req, res) => {
         district: req.body.district,
         isVerify: false,
         contact: req.body.contact,
-
-        ownerName: '',
-        ownerNIC: '',
-        ownerAddress: '',
       });
 
       const dataToSave = await data.save();
@@ -67,6 +63,7 @@ pharmacy.post("/verify/:pharmacy", async (req, res) => {
     res.status(200).json({ message: "Updated Successfully!" });
   } catch (error) {
     res.status(400).json({ message: error.message });
+    console.log(error);
   }
 });
 

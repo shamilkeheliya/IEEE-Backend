@@ -43,15 +43,15 @@ const pharmacySchema = new Schema(
 
     ownerName: {
       type: String,
-      required: true,
+      required: false,
     },
     ownerNIC: {
       type: String,
-      required: true,
+      required: false,
     },
     ownerAddress:{
       type: String,
-      required: true,
+      required: false,
     }
     
   },

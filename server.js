@@ -7,7 +7,9 @@ const dbURL = process.env.MONGODB;
 const app = require("./app");
 const routes = require("./routes");
 
+
 let bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 mongoose.set("strictQuery", false);
 mongoose.connect(dbURL)
