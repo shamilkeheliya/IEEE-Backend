@@ -36,6 +36,10 @@ const pharmacySchema = new Schema(
       type: Boolean,
       required: true,
     },
+    contact: {
+      type: String,
+      required: true,
+    },
 
     ownerName: {
       type: String,

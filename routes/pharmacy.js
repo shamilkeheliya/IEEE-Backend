@@ -27,10 +27,11 @@ pharmacy.post("/create", async (req, res) => {
         address: req.body.address,
         district: req.body.district,
         isVerify: false,
+        contact: req.body.contact,
 
-        ownerName: req.body.ownerName,
-        ownerNIC: req.body.ownerNIC,
-        ownerAddress: ownerAddress,
+        ownerName: '',
+        ownerNIC: '',
+        ownerAddress: '',
       });
 
       const dataToSave = await data.save();
@@ -39,6 +40,33 @@ pharmacy.post("/create", async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error.message });
     console.log(error);
+  }
+});
+
+pharmacy.post("/verify/:pharmacy", async (req, res) => {
+  try {
+    await PharmacyModel.updateOne(
+      { _id: req.params.pharmacy },
+      {
+        name: req.body.name,
+        email: req.body.email,
+        password: hash,
+        pharmacy_license_number: req.body.pharmacy_license_number,
+        drug: [],
+        address: req.body.address,
+        district: req.body.district,
+        isVerify: false,
+        contact: req.body.contact,
+
+        ownerName: '',
+        ownerNIC: '',
+        ownerAddress: '',
+      }
+    );
+
+    res.status(200).json({ message: "Updated Successfully!" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
 });
 
